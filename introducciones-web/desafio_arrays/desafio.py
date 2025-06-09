@@ -2,7 +2,10 @@ def ingresar_pasajero (ciudades_lista):
     nombre_apellido = input("Ingrese su nombre y apellido: ")
     dni = int(input("Ingrese su DNI: "))
     ciudad = str(input("Ingrese ciudad en donde viaja: "))
-    nuevo_pasajero = (nombre_apellido, dni, ciudad) #Falta ingresar la provincia correspondiente a la ciudad
+    for i in ciudades_lista:
+        if i[0] == ciudad:
+            provincia = i[1]
+    nuevo_pasajero = (nombre_apellido, dni, ciudad, provincia) #Falta ingresar la provincia correspondiente a la ciudad
     
     guardar_pasajero (nuevo_pasajero)
 
@@ -19,6 +22,20 @@ def guardar_pasajero (nuevo_pasajero):
 def guardar_ciudad (nuevo_ciudad):
     ciudades_lista.append((nuevo_ciudad))
 
+def buscar_DNI (pasajeros_lista):
+    dni_busqueda = int(input("Ingrese el DNI del pasajero"))
+    for pasajero in pasajeros_lista:
+        if dni_busqueda == pasajero[1]:
+            print(pasajero)
+
+def contar_pasajeros(pasajeros_lista):
+    ciudad_busqueda = str(input("Ingrese una ciudad: "))
+    contador = 0
+    for lugar in pasajeros_lista:
+        if lugar[0] == ciudad_busqueda:
+            contador += 1
+    print(contador)
+
 def menu (opcion):
     while opcion != 0:
         print("Sistema de viajes")
@@ -32,17 +49,27 @@ def menu (opcion):
         print("------------------------------------------------")
         print("6 - Ver listado de pasajeros")
         print("7 - Ver listado de ciudades")
-        print(pasajeros_lista)
-        print(ciudades_lista)
         opcion = int(input("Ingrese una opcion: "))
         if opcion == 1:
-            ingresar_pasajero()
+            ingresar_pasajero(ciudades_lista)
+            print(pasajeros_lista)
         elif opcion == 2:
             ingresar_ciudad()
-        print("Adiosito")
+            print(ciudades_lista)
+        elif opcion == 3:
+            buscar_DNI(pasajeros_lista)
+            input("Precionar para una tecla continuar...")
+        elif opcion == 4:
+            contar_pasajeros(pasajeros_lista)
+            input("Precionar para una tecla continuar...")
+        else:
+            print("Adiosito")
 
 pasajeros_lista = []
-ciudades_lista = []
+ciudades_lista = [
+    ("Rosario", "Santa Fe") ,
+    ("Bariloche", "Rio Negro")
+    ]
 opcion = 1
 
 menu(opcion)
