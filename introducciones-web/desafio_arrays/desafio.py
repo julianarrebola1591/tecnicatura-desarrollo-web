@@ -1,3 +1,16 @@
+#Variables
+pasajeros_lista = [
+    ("Julian Arrebola","41511891","Rosario","Santa Fe"),
+    ("Otro pasajero","55489621","Bariloche","Rio Negro")
+]
+ciudades_lista = [
+    ("Rosario", "Santa Fe") ,
+    ("Bariloche", "Rio Negro")
+    ]
+opcion = 1
+
+#Funciones
+
 def ingresar_pasajero (ciudades_lista):
     nombre_apellido = input("Ingrese su nombre y apellido: ")
     dni = int(input("Ingrese su DNI: "))
@@ -83,17 +96,7 @@ def menu (opcion):
         else:
             print("Adiosito")
 
-pasajeros_lista = [
-    ("Julian Arrebola","41511891","Rosario","Santa Fe"),
-    ("Otro pasajero","55489621","Bariloche","Rio Negro")
-]
-ciudades_lista = [
-    ("Rosario", "Santa Fe") ,
-    ("Bariloche", "Rio Negro")
-    ]
-opcion = 1
+#Main
 
 menu(opcion)
-
-
 
