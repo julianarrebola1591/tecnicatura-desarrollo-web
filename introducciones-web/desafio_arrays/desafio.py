@@ -31,8 +31,8 @@ def buscar_DNI (pasajeros_lista):
 def contar_pasajeros(pasajeros_lista):
     ciudad_busqueda = str(input("Ingrese una ciudad: "))
     contador = 0
-    for lugar in pasajeros_lista:
-        if lugar[0] == ciudad_busqueda:
+    for pasajero in pasajeros_lista:
+        if pasajero[2] == ciudad_busqueda:
             contador += 1
     print(contador)
 
@@ -65,7 +65,9 @@ def menu (opcion):
         else:
             print("Adiosito")
 
-pasajeros_lista = []
+pasajeros_lista = [
+    ("Julian Arrebola"),("41511891"),("Rosario"),("Santa Fe")
+]
 ciudades_lista = [
     ("Rosario", "Santa Fe") ,
     ("Bariloche", "Rio Negro")
