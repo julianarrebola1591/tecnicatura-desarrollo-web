@@ -28,13 +28,26 @@ def buscar_DNI (pasajeros_lista):
         if dni_busqueda == pasajero[1]:
             print(pasajero)
 
-def contar_pasajeros(pasajeros_lista):
+def contar_pasajeros_por_ciudad(pasajeros_lista):
     ciudad_busqueda = str(input("Ingrese una ciudad: "))
     contador = 0
     for pasajero in pasajeros_lista:
         if pasajero[2] == ciudad_busqueda:
             contador += 1
-    print(contador)
+    print(f"La cantidad de viajes a {ciudad_busqueda} es: {contador}")
+
+def contar_pasajeros_por_provincia(pasajeros_lista):
+    provincia_busqueda = str(input("Ingrese una provincia: "))
+    contador = 0
+    for pasajero in pasajeros_lista:
+        if pasajero[3] == provincia_busqueda:
+            contador += 1
+    print(f"La cantidad de viajes a {provincia_busqueda} es: {contador}")
+
+def mostrar_pasajeros(pasajeros_lista):
+    for pasajero in pasajeros_lista:
+        print(pasajeros_lista)
+    input("Precionar para una tecla continuar...")
 
 def menu (opcion):
     while opcion != 0:
@@ -60,13 +73,19 @@ def menu (opcion):
             buscar_DNI(pasajeros_lista)
             input("Precionar para una tecla continuar...")
         elif opcion == 4:
-            contar_pasajeros(pasajeros_lista)
+            contar_pasajeros_por_ciudad(pasajeros_lista)
             input("Precionar para una tecla continuar...")
+        elif opcion == 5:
+            contar_pasajeros_por_provincia(pasajeros_lista)
+            input("Precionar para una tecla continuar...")
+        elif opcion == 6:
+            mostrar_pasajeros(pasajeros_lista)
         else:
             print("Adiosito")
 
 pasajeros_lista = [
-    ("Julian Arrebola"),("41511891"),("Rosario"),("Santa Fe")
+    ("Julian Arrebola","41511891","Rosario","Santa Fe"),
+    ("Otro pasajero","55489621","Bariloche","Rio Negro")
 ]
 ciudades_lista = [
     ("Rosario", "Santa Fe") ,
