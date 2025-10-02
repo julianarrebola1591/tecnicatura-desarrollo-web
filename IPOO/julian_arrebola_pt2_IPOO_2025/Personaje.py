@@ -1,14 +1,18 @@
+from Arma import Arma
+
+
 class Personaje:
    
     #Constructor
-    def __init__(self, nombre:str = "Personaje sin nombre",  puntosVida:int = 10, puntosAtaque:int = 10, puntosDefensa:int = 5):
+    def __init__(self, nombre:str = "Personaje sin nombre",  puntos_vida:int = 10, puntos_ataque:int = 10, puntos_defensa:int = 5):
         self.__nombre = nombre
-        self.__puntosVida = puntosVida
-        self.__puntosAtaque = puntosAtaque
-        self.__puntosDefensa = puntosDefensa
-        print("Personaje creado correctamente")
+        self.__puntosVida = puntos_vida
+        self.__puntosAtaque = puntos_ataque
+        self.__puntosDefensa = puntos_defensa
+        self.__arsenal = []
         
-        #Getters y Setters
+    
+    #Getters y Setters
     @property
     def nombre(self):
         return self.__nombre
@@ -40,6 +44,14 @@ class Personaje:
     @puntosDefensa.setter
     def puntosDefensa(self, nuevosPuntosDefensa:int):
         self.__puntosDefensa = nuevosPuntosDefensa
+        
+    @property
+    def arsenal(self):
+        return self.__arsenal
+    
+    @arsenal.setter
+    def arsenal(self, nuevoArsenal:list):
+        self.__arsenal = nuevoArsenal
 
         
 #Metodos
@@ -53,3 +65,13 @@ class Personaje:
         else:
             self.__puntosVida = (self.puntosVida - recibeDaño)
             return True
+
+    def agregarArma (self, arma:Arma):
+        if len(self.__arsenal) > 5:
+            print("No se pueden agregar mas armas")
+            return
+        for a in self.__arsenal:
+            if a.nombre == arma.nombre:
+                print("El arma ya existe en el arsenal")
+                return
+        self.__arsenal.append(arma)

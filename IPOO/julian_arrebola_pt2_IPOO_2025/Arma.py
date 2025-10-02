@@ -8,7 +8,7 @@ class Arma:
         self.__puntos_resistencia = puntos_resistencia
         self.__usa_mana = usa_mana
         self.__ventaja_sobre = ventaja_sobre
-        print("Arma creada correctamente")
+
         
     #Getters y Setters
     @property
